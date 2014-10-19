@@ -1,0 +1,74 @@
+{#extends file='Frontsite/Front.Master.html'}
+{#block name=meta}
+<title>Attorney Calendar Call - Home</title>
+<meta name="title" content="Attorney Calendar Call - Home" />
+<meta name="description" content="Attorney Calendar Call is the one stop shop where you will be able to see your court calendars come to life. No more wasting precious time and money looking through e-mails and trying to find your name." />
+<meta name="keywords"  content="court calendars, calendar call, attorney calendar call, attorney, lawyer, save time, priority dates, court date, court dates, court schedule, " />
+{#/block}
+{#block name=header}
+<script type="text/javascript">
+// <![CDATA[
+window.onload = function () {
+    setTimeout(fullScreen, 100);
+}
+
+$(window).resize(function () {
+    fullScreen();
+});
+
+function fullScreen() {
+	var headerHeight = $(".divTopBar").height() + $(".divHead").height();
+	var footerHeight = $(".divFooter").height();
+
+	var contentHeight = $(".divHome").height();
+	if (contentHeight + headerHeight + footerHeight < window.innerHeight) {
+		var half = (window.innerHeight - contentHeight) / 2;
+
+		var bottom = half - footerHeight - 1;
+		var top = half - headerHeight;
+		if (top > 0) {
+			$(".divHome").css("padding-top", top + "px");
+			$(".divHome").css("padding-bottom", bottom + "px");
+		}
+	}
+}
+
+$(document).ready(function () {
+	
+});
+// ]]>
+</script>
+{#/block}
+{#block name=content}
+    	<div class="divHome">
+        	<div class="homeLeft" style="margin-top:50px;">
+            	<h1>Attorney Calendar Call</h1>
+        		<p>Welcome to the website where you will be able to see your calendars come to life. No more wasting precious time and money looking through e-mails and trying to find your name.</p>
+        	</div>
+            <!--div style="float:right;width:350px;height:301px;">
+            	<img src="{#$root_url}images/logo.png" alt="" />
+            </div-->
+            <div class="homeRight">
+            	<div class="divLogin">
+                	<form method="post" action="?a=signin">
+                	<h2>Already a subscriber? Sign in</h2>
+                    <span class="bgText">
+                    	<label><img src="{#$root_url}images/icon-user.jpg" alt="" /></label>
+                    	<input name="username" type="text" placeholder="Username" />
+                    </span>
+                    <span class="bgText">
+                    	<label><img src="{#$root_url}images/icon-key.jpg" alt="" /></label>
+                    	<input name="password" type="password" placeholder="Password" />
+                    </span>
+                    <span>
+                    	<input type="submit" value="" class="btnSignin" />
+                    </span>
+                    <span>
+                    	<input type="button" value="" class="btnRegister" onclick="window.location='?a=subscribe'" />
+                    </span>
+                    <span class="right"><a href="?a=forgotpassword" class="forget">Forget Password</a></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+{#/block}
